@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 @Entity
 @Table(name="TB_USUARIO")
 public class Usuario implements Serializable{
@@ -19,11 +21,17 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
+	@NotNull
 	private String nome;
+	@NotNull
 	private String cpf;
+	@NotNull
 	private String dataNascimento;
+	@NotNull
 	private char sexo;
+	@NotNull
 	private String dataCadastro;
+	@NotNull
 	private String cargo;
 	
 	//GETTER AND SETTERS
