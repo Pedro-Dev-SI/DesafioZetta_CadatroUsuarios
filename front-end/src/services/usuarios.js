@@ -11,5 +11,9 @@ export default{
 
    atualizar:(usuario) => {
       return http.put('usuario', usuario)
+   },
+
+   deletar:(usuario) => {
+      return http.delete('usuario', { data: usuario })
    }
 }

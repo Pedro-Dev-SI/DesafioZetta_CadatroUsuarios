@@ -70,7 +70,7 @@
             <td>{{ usuario.cargo }}</td>
             <td>
               <button @click="editar(usuario)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
-              <button class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
+              <button @click="remover(usuario)" class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
             </td>
 
           </tr>
@@ -138,6 +138,16 @@
 
       editar(usuario){
         this.usuario = usuario;
+      },
+
+      remover(usuario){
+
+        if(confirm('Deseja excluir ?')){
+           Usuario.deletar(usuario).then(res => {
+            this.listar();
+            res;
+          })
+        }
       }
     }
   }
