@@ -9,21 +9,15 @@
 
     <div class="container">
 
-      <ul>
-        <li v-for="(erro, index) of errors" :key="index">
-          campo <b>{{ erro.field }}</b> - {{ erro.defaultMessage }}
-        </li>
-      </ul>
-
 
       <form @submit.prevent="salvar">
 
           <label>Nome</label>
-          <input type="text" placeholder="Nome completo" v-model="usuario.nome">
+          <input type="text" placeholder="Nome completo" v-model="usuario.nome" required>
           <label>CPF</label>
-          <input type="text" placeholder="xxx.xxx.xxx-xx" v-model="usuario.cpf">
+          <input type="text" placeholder="xxx.xxx.xxx-xx" v-model="usuario.cpf" required>
           <label>Data de Nascimento</label>
-          <input type="date" v-model="usuario.dataNascimento">
+          <input type="date" v-model="usuario.dataNascimento" required>
           <label>Sexo</label>
           <p>
             <label>
@@ -38,9 +32,9 @@
             </label>
           </p>
           <label>Data de cadastro</label>
-          <input type="date" placeholder="xxx.xxx.xxx-xx" v-model="usuario.dataCadastro" />
+          <input type="date" placeholder="xxx.xxx.xxx-xx" v-model="usuario.dataCadastro" required/>
           <label>Cargo</label>
-          <input type="text" v-model="usuario.cargo">
+          <input type="text" v-model="usuario.cargo" required/>
 
 
           <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
@@ -58,6 +52,8 @@
             <th>SEXO</th>
             <th>DATA DE CADASTRO</th>
             <th>CARGO</th>
+            <th>EDITAR/DELETAR</th>
+
           </tr>
 
         </thead>
@@ -73,7 +69,7 @@
             <td>{{ usuario.dataCadastro }}</td>
             <td>{{ usuario.cargo }}</td>
             <td>
-              <button class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
+              <button @click="editar(usuario)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
               <button class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
             </td>
 
@@ -97,6 +93,7 @@
     data(){
       return {
         usuario: {
+          id: '',
           nome: '',
           cpf: '',
           dataNascimento: '',
@@ -105,7 +102,6 @@
           cargo: ''
         },
         usuarios: [],
-        errors: []
       }
     },
 
@@ -128,11 +124,20 @@
           alert("Usuário salvo!")
           this.listar()
           res;
-        }).catch(e => {
-          console.log(e.response.data.errors);
-          this.errors = e.response.data.errors;
         })
+      },
 
+      atualizar(){
+        Usuario.atualizar(this.usuario).then(res => {
+            this.usuario = {}
+            alert("Usuário atualizado!")
+            this.listar()
+            res;
+        })
+      },
+
+      editar(usuario){
+        this.usuario = usuario;
       }
     }
   }
