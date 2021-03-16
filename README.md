@@ -32,7 +32,7 @@ Se tudo der certo a aplicação foi iniciada.
 
 ## Uso da aplicação
 **Campo Nome**: Deve informar o nome do usuário<br>
-**Campo Cpf**: Informar o cpf do usuário com os pontos e traço para uma melhor vizualização<br>
+**Campo Cpf**: Informar o cpf do usuário com os pontos e traço para uma melhor visualização<br>
 **Campo Data de Nascimento**: Colocar a data de nascimento do usuário<br>
 **Campo Sexo**: Selecionar o sexo do usuário<br>
 **Campo Data de Cadastro**: Informar a data que esta sendo cadastrado (não foi possível colocar preenchimento automático)<br>
