@@ -38,4 +38,4 @@ Se tudo der certo a aplicação foi iniciada.
 **Campo Data de Cadastro**: Informar a data que esta sendo cadastrado (não foi possível colocar preenchimento automático)<br>
 **Campo Cargo**: Informe o cargo do funcionário<br>
 Clicando em cadastrar o usuário é enviado ao banco de dados e é mostrado abaixo.<br>
-Os botões presentes na tabela de usuários servem para editar assim os dados do usuário será retornado no formulário acima permitindo a edição, clicando em salvar para finalizar a alteração e o outro botão serve para excluir, quando clicado um alert sera mostrado pedindo a confirmação da exclusão.
+Os botões presentes na tabela de usuários servem para editar assim os dados do usuário serão retornados no formulário acima permitindo a edição, clicando em salvar para finalizar a alteração e o outro botão serve para excluir, quando clicado um alert sera mostrado pedindo a confirmação da exclusão.
